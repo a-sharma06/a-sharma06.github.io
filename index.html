@@ -5,106 +5,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akshay Sharma — Data Scientist</title>
 <meta name="description" content="Portfolio of Akshay Sharma — Data Scientist at LBNL, UC Berkeley MIDS student. Machine learning, forecasting, recommender systems, and experimentation projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #090c11;
-    --bg-glow: radial-gradient(circle at 15% -10%, rgba(56,189,248,0.16), transparent 45%),
-               radial-gradient(circle at 90% 10%, rgba(167,139,250,0.10), transparent 40%);
-    --surface: #10151d;
-    --surface-hover: #151b25;
-    --border: #212936;
-    --border-hover: #38bdf8;
-    --text: #e7eaf0;
-    --text-muted: #8d97a8;
-    --accent: #38bdf8;
-    --accent-2: #a78bfa;
+    --bg: #000000;
+    --surface: #0a0a0a;
+    --border: #1f1f1f;
+    --text: #e4e4e4;
+    --text-muted: #888888;
+    --accent: #00ff66;
+    --accent-dim: #00993d;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background-color: var(--bg);
-    background-image: var(--bg-glow),
-      radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size: auto, 28px 28px;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
   }
   .wrap {
-    max-width: 900px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 72px 24px 90px;
   }
   header {
     display: flex;
     align-items: center;
-    gap: 26px;
+    gap: 30px;
     margin-bottom: 20px;
   }
   .avatar {
-    width: 96px;
-    height: 96px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     flex-shrink: 0;
     object-fit: cover;
-    border: 2px solid var(--border);
-    box-shadow: 0 0 0 4px rgba(56,189,248,0.08), 0 0 40px rgba(56,189,248,0.15);
+    border: 2px solid var(--accent-dim);
   }
   header h1 {
-    font-size: 2.1rem;
-    margin: 0 0 8px;
+    font-size: 2rem;
+    margin: 0 0 10px;
     font-weight: 700;
     letter-spacing: -0.01em;
-    background: linear-gradient(90deg, #ffffff, #c7d2e0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
   }
   header .tagline {
-    font-size: 1rem;
+    font-size: 0.92rem;
     color: var(--text-muted);
-    margin: 0 0 14px;
+    margin: 0 0 16px;
   }
   .links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
   }
   .links a {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text);
     text-decoration: none;
     border: 1px solid var(--border);
     padding: 6px 14px;
-    border-radius: 999px;
-    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
   .links a:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(56,189,248,0.06);
   }
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .location svg { width: 13px; height: 13px; fill: var(--text-muted); }
   .intro {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
     max-width: 680px;
     margin: 32px 0 52px;
   }
-  section {
-    margin-bottom: 52px;
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  section.visible { opacity: 1; transform: translateY(0); }
+  section { margin-bottom: 52px; }
   h2 {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin: 0 0 22px;
+    margin: 0 0 26px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -115,56 +108,50 @@
     height: 1px;
     background: var(--border);
   }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 16px;
-  }
-  .card {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    border-radius: 12px;
-    padding: 20px 20px 18px;
+  .projects {
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
-  .card:hover {
-    transform: translateY(-3px);
-    border-color: var(--border-hover);
-    background: var(--surface-hover);
-    box-shadow: 0 10px 30px -12px rgba(56,189,248,0.25);
+  .project-row {
+    padding: 22px 0 22px 18px;
+    border-bottom: 1px solid var(--border);
+    border-left: 2px solid var(--border);
+    transition: border-left-color 0.2s ease;
   }
-  .card .kicker {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  .project-row:first-child { padding-top: 4px; }
+  .project-row:hover { border-left-color: var(--accent); }
+  .kicker {
     font-size: 0.7rem;
-    letter-spacing: 0.04em;
-    color: var(--accent-2);
+    letter-spacing: 0.06em;
+    color: var(--accent-dim);
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
-  .card h3 {
-    margin: 0 0 10px;
-    font-size: 1.02rem;
+  .project-row h3 {
+    margin: 0 0 12px;
+    font-size: 0.98rem;
+    font-weight: 600;
   }
-  .card h3 a {
-    color: var(--text);
+  .project-row h3 a {
+    color: #ffffff;
     text-decoration: none;
   }
-  .card h3 a:hover { color: var(--accent); }
-  .card p {
-    margin: 0 0 16px;
-    font-size: 0.88rem;
+  .project-row h3 a:hover { color: var(--accent); }
+  .project-row ul {
+    margin: 0 0 12px;
+    padding-left: 18px;
     color: var(--text-muted);
-    flex-grow: 1;
+    font-size: 0.83rem;
   }
-  .card .link {
-    font-size: 0.82rem;
+  .project-row li { margin-bottom: 5px; }
+  .project-row li::marker { color: var(--accent-dim); }
+  .project-row .link {
+    font-size: 0.78rem;
     font-weight: 500;
     color: var(--accent);
     text-decoration: none;
   }
-  .card .link:hover { text-decoration: underline; }
+  .project-row .link:hover { text-decoration: underline; }
   .skills {
     display: flex;
     flex-wrap: wrap;
@@ -173,19 +160,19 @@
   .skills span {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 0.83rem;
+    border-radius: 4px;
+    padding: 6px 13px;
+    font-size: 0.78rem;
     color: var(--text-muted);
     transition: border-color 0.2s ease, color 0.2s ease;
   }
   .skills span:hover {
     border-color: var(--accent);
-    color: var(--text);
+    color: var(--accent);
   }
   footer {
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     border-top: 1px solid var(--border);
     padding-top: 22px;
   }
@@ -204,7 +191,10 @@
       <div class="links">
         <a href="https://www.linkedin.com/in/akshaysharma06" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/a-sharma06" target="_blank" rel="noopener">GitHub</a>
-        <a href="#projects">San Francisco, CA</a>
+        <span class="location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          San Francisco, CA
+        </span>
       </div>
     </div>
   </header>
@@ -213,54 +203,82 @@
 
   <section id="projects">
     <h2>Featured Projects</h2>
-    <div class="cards">
+    <div class="projects">
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Experiment Design · A/B Testing</div>
         <h3><a href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">LLM Prompt Consistency Experiment</a></h3>
-        <p>Controlled experiment (power analysis, treatment/control design) testing whether prompt-engineering interventions improve LLM response consistency.</p>
+        <ul>
+          <li>Designed a controlled experiment with power analysis and treatment/control groups — core A/B testing methodology applied to LLM evaluation</li>
+          <li>Tested prompt-engineering interventions across multiple LLMs (OpenAI, Gemini, Gemma) for response consistency</li>
+          <li>Applied statistical hypothesis testing to quantify the effect of treatment on response variability</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Recommender Systems</div>
-        <h3><a href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">Movie Recommender: MF vs. Item-Item CF</a></h3>
-        <p>Movie recommender system comparing matrix factorization (SVD) and item-item collaborative filtering on the MovieLens 1M dataset.</p>
+        <h3><a href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">Movie Recommender: Matrix Factorization vs. Item-Item CF</a></h3>
+        <ul>
+          <li>Built and benchmarked matrix factorization (SVD) and item-item collaborative filtering models on MovieLens 1M (1M+ ratings, 6,040 users)</li>
+          <li>Tuned SVD model outperformed baselines across precision, recall, and hit rate for top-N recommendations</li>
+          <li>Compared multiple approaches (baselines, ensembles, item-based CF) to identify the strongest architecture for the task</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Applied Econometrics</div>
         <h3><a href="https://github.com/a-sharma06/datasci203-firm-characteristics-stock-price-event-study" target="_blank" rel="noopener">Firm Characteristics & Stock Price Event Study</a></h3>
-        <p>Event study on associations between firm-level characteristics and short-term stock price changes following a market event.</p>
+        <ul>
+          <li>Ran an event study measuring short-term stock price reactions across Fortune 1000 firms</li>
+          <li>Modeled associations between firm-level financial/ESG characteristics and price movement</li>
+          <li>Applied statistical analysis to isolate which firm characteristics were most predictive of price reaction</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci203-firm-characteristics-stock-price-event-study" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Deep Learning · Time Series</div>
         <h3><a href="https://github.com/a-sharma06/ashrae_competition" target="_blank" rel="noopener">ASHRAE Energy Prediction</a></h3>
-        <p>Comparison of neural network architectures (dense NN, entity embeddings, CNN-1D) for time series forecasting of building energy consumption across 1,000+ buildings.</p>
+        <ul>
+          <li>Compared four neural network architectures (dense NN, cyclical time encoding, entity embeddings, CNN-1D) for energy forecasting</li>
+          <li>Built a custom multi-series data generator handling 1,000+ buildings and ~12 meter types concurrently</li>
+          <li>Benchmarked validation performance across architectures rather than reporting a single cherry-picked result</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/ashrae_competition" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Time Series Forecasting</div>
         <h3><a href="https://github.com/a-sharma06/Spatial-Wind-Power-Forecasting" target="_blank" rel="noopener">Spatial Wind Power Forecasting</a></h3>
-        <p>Spatiotemporal forecasting of wind power output across 64 geographic zones using ARIMA modeling.</p>
+        <ul>
+          <li>Built ARIMA models forecasting wind power 1–4 hours ahead across 64 geographic zones in the US</li>
+          <li>Engineered a capacity-factor-based site selection method to represent each zone with a single power plant</li>
+          <li>Evaluated forecast accuracy using MAPE, aggregated by zone to quantify error reduction</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/Spatial-Wind-Power-Forecasting" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Computer Vision · OCR</div>
         <h3><a href="https://github.com/a-sharma06/ai4doc" target="_blank" rel="noopener">AI4Doc: SEC Filing Layout Detection</a></h3>
-        <p>Pipeline for collecting, filtering, and annotating 22K+ SEC regulatory filings for document layout detection and OCR.</p>
+        <ul>
+          <li>Scraped and collected 22,000+ SEC regulatory filings through an automated data pipeline</li>
+          <li>Built an OCR and layout-detection pipeline (PyMuPDF, Tesseract, Detectron2/LayoutParser) to extract document structure</li>
+          <li>Constructed a labeled train/val/test dataset for downstream annotation and model training workflows</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/ai4doc" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
-      <div class="card">
+      <div class="project-row">
         <div class="kicker">Exploratory Data Analysis</div>
         <h3><a href="https://github.com/a-sharma06/recsys_otto" target="_blank" rel="noopener">OTTO Recommender EDA</a></h3>
-        <p>Exploratory analysis of e-commerce session behavior (150K sessions, 830K products) to characterize patterns relevant to recommendation, including conversion rates and product co-occurrence.</p>
+        <ul>
+          <li>Analyzed 150,000 e-commerce sessions (830,000+ products) to surface behavior patterns relevant to recommendation</li>
+          <li>Quantified conversion funnels: 25.7% click→cart, 38.6% cart→order, 9.9% overall click→order</li>
+          <li>Built a sparse 830K × 830K product co-occurrence matrix to identify cross-sell signals</li>
+        </ul>
         <a class="link" href="https://github.com/a-sharma06/recsys_otto" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
@@ -281,13 +299,5 @@
   </footer>
 
 </div>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  sections.forEach(s => io.observe(s));
-</script>
 </body>
 </html>
