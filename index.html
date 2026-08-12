@@ -211,8 +211,7 @@
         <div class="kicker">UC Berkeley MIDS · Experiment Design · A/B Testing</div>
         <h3><a href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">LLM Prompt Consistency Experiment</a></h3>
         <ul>
-          <li>Within-subjects factorial experiment: 51 prompts, each run under all 6 text conditions × 3 LLMs (ChatGPT, Gemini, Gemma) × 2 temperatures (0, 2) × 10 repeated generations, with consistency measured as average pairwise cosine similarity using sentence embeddings (all-mpnet-base-v2); a parallel image-description experiment was run the same way</li>
-          <li>Tested 5 prompt-engineering treatments against a control prompt: Consistency Instruction, Authority Role, Decisive Answer, Consensus Answer, and Format Constraint, each prepended to the same underlying question</li>
+          <li>Within-subjects factorial experiment: 51 prompts, each run under 1 control and 5 treatments × 3 LLMs (ChatGPT, Gemini, Gemma) × 2 temperatures (0, 2) × 10 repeated generations, with consistency measured as average pairwise cosine similarity using sentence embeddings (all-mpnet-base-v2); a parallel image-description experiment was run the same way</li>
           <li>Pre-registered a power analysis (targeting ~0.94 power at a conservative 4% effect size) to set the sample size, then estimated Average Treatment Effects via regression with condition × temperature and condition × prompt-type interaction terms and cluster-robust standard errors, pre-committing to the full interaction model to avoid p-hacking</li>
           <li>Temperature, not prompt wording, was the dominant lever. Dropping to temperature 0 drove consistency gains up to +100% in cosine similarity, while 4 of the 5 prompt treatments decreased consistency and no single treatment behaved consistently across all three LLMs</li>
         </ul>
