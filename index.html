@@ -64,13 +64,14 @@
     gap: 10px;
   }
   .links a {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     color: var(--text);
     text-decoration: none;
     border: 1px solid var(--border);
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 4px;
     transition: border-color 0.2s ease, color 0.2s ease;
+    word-break: break-all;
   }
   .links a:hover {
     border-color: var(--accent);
@@ -145,6 +146,7 @@
   }
   .project-row li { margin-bottom: 5px; }
   .project-row li::marker { color: var(--accent-dim); }
+  .project-row li strong { color: var(--text); }
   .project-row .link {
     font-size: 0.78rem;
     font-weight: 500;
@@ -189,8 +191,8 @@
       <h1>Akshay Sharma</h1>
       <p class="tagline">Data Scientist. Researcher at LBNL. Student at UC Berkeley MIDS. Columbia University alum.</p>
       <div class="links">
-        <a href="https://www.linkedin.com/in/akshaysharma06" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/a-sharma06" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/akshaysharma06" target="_blank" rel="noopener">https://www.linkedin.com/in/akshaysharma06</a>
+        <a href="https://github.com/a-sharma06" target="_blank" rel="noopener">https://github.com/a-sharma06</a>
         <span class="location">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
           San Francisco, CA
@@ -209,9 +211,10 @@
         <div class="kicker">UC Berkeley MIDS · Experiment Design · A/B Testing</div>
         <h3><a href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">LLM Prompt Consistency Experiment</a></h3>
         <ul>
-          <li>Ran a factorial experiment (4 prompt treatments × 2 temperatures × 3 LLMs: ChatGPT, Gemini, Gemma), estimating average treatment effects via regression with interaction terms and significance testing — core A/B testing methodology</li>
-          <li>Found temperature, not prompt wording, was the dominant lever: setting temperature to 0 drove consistency gains as high as +100% in cosine similarity, while most "consistency-focused" prompt treatments backfired</li>
-          <li>Reported the counterintuitive null result rigorously rather than cherry-picking — avoided p-hacking by pre-committing to the full interaction model as the primary analysis</li>
+          <li><strong>Design:</strong> Within-subjects factorial experiment — 51 prompts, each run under all 6 text conditions × 3 LLMs (ChatGPT, Gemini, Gemma) × 2 temperatures (0, 2) × 10 repeated generations; consistency measured as average pairwise cosine similarity across generations using sentence embeddings (all-mpnet-base-v2), with a parallel image-description experiment run the same way</li>
+          <li><strong>Treatments:</strong> Tested 5 prompt-engineering treatments against a control prompt — Consistency Instruction, Authority Role, Decisive Answer, Consensus Answer, and Format Constraint — each prepended to the same underlying question</li>
+          <li><strong>Statistical analysis:</strong> Pre-registered a power analysis (targeting ~0.94 power at a conservative 4% effect size) to set the sample size, then estimated Average Treatment Effects via regression with condition × temperature and condition × prompt-type interaction terms and cluster-robust standard errors, pre-committing to the full interaction model to avoid p-hacking</li>
+          <li><strong>Results:</strong> Temperature, not prompt wording, was the dominant lever — dropping to temperature 0 drove consistency gains up to +100% in cosine similarity, while 4 of the 5 prompt treatments decreased consistency and no single treatment behaved consistently across all three LLMs</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
