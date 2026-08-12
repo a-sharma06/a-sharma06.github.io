@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akshay Sharma — Data Scientist</title>
-<meta name="description" content="Portfolio of Akshay Sharma — Data Scientist at LBNL, UC Berkeley MIDS student. Machine learning, forecasting, recommender systems, and experimentation projects.">
+<title>Akshay Sharma · Data Scientist</title>
+<meta name="description" content="Portfolio of Akshay Sharma, Data Scientist at LBNL and UC Berkeley MIDS student. Machine learning, forecasting, recommender systems, and experimentation projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -211,10 +211,10 @@
         <div class="kicker">UC Berkeley MIDS · Experiment Design · A/B Testing</div>
         <h3><a href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">LLM Prompt Consistency Experiment</a></h3>
         <ul>
-          <li><strong>Design:</strong> Within-subjects factorial experiment — 51 prompts, each run under all 6 text conditions × 3 LLMs (ChatGPT, Gemini, Gemma) × 2 temperatures (0, 2) × 10 repeated generations; consistency measured as average pairwise cosine similarity across generations using sentence embeddings (all-mpnet-base-v2), with a parallel image-description experiment run the same way</li>
-          <li><strong>Treatments:</strong> Tested 5 prompt-engineering treatments against a control prompt — Consistency Instruction, Authority Role, Decisive Answer, Consensus Answer, and Format Constraint — each prepended to the same underlying question</li>
-          <li><strong>Statistical analysis:</strong> Pre-registered a power analysis (targeting ~0.94 power at a conservative 4% effect size) to set the sample size, then estimated Average Treatment Effects via regression with condition × temperature and condition × prompt-type interaction terms and cluster-robust standard errors, pre-committing to the full interaction model to avoid p-hacking</li>
-          <li><strong>Results:</strong> Temperature, not prompt wording, was the dominant lever — dropping to temperature 0 drove consistency gains up to +100% in cosine similarity, while 4 of the 5 prompt treatments decreased consistency and no single treatment behaved consistently across all three LLMs</li>
+          <li>Within-subjects factorial experiment: 51 prompts, each run under all 6 text conditions × 3 LLMs (ChatGPT, Gemini, Gemma) × 2 temperatures (0, 2) × 10 repeated generations, with consistency measured as average pairwise cosine similarity using sentence embeddings (all-mpnet-base-v2); a parallel image-description experiment was run the same way</li>
+          <li>Tested 5 prompt-engineering treatments against a control prompt: Consistency Instruction, Authority Role, Decisive Answer, Consensus Answer, and Format Constraint, each prepended to the same underlying question</li>
+          <li>Pre-registered a power analysis (targeting ~0.94 power at a conservative 4% effect size) to set the sample size, then estimated Average Treatment Effects via regression with condition × temperature and condition × prompt-type interaction terms and cluster-robust standard errors, pre-committing to the full interaction model to avoid p-hacking</li>
+          <li>Temperature, not prompt wording, was the dominant lever. Dropping to temperature 0 drove consistency gains up to +100% in cosine similarity, while 4 of the 5 prompt treatments decreased consistency and no single treatment behaved consistently across all three LLMs</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
@@ -225,7 +225,7 @@
         <ul>
           <li>Built and benchmarked 5 recommenders (popularity baseline, hand-implemented Funk SVD, Item-Item CF, SVD+Bayesian ensemble, tuned Surprise SVD) on MovieLens 1M</li>
           <li>Best model beat the popularity baseline by 45% on Precision@10 (0.0239 vs. 0.0165) and 39% on HitRate@10 (0.1775 vs. 0.1280), with a test RMSE of 0.879</li>
-          <li>Surfaced a fairness gap through subgroup analysis — younger and male users received measurably better recommendations — and proposed reweighting to address it before deployment</li>
+          <li>Surfaced a fairness gap through subgroup analysis (younger and male users received measurably better recommendations) and proposed reweighting to address it before deployment</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
