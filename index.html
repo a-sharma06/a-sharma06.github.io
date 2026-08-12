@@ -206,34 +206,34 @@
     <div class="projects">
 
       <div class="project-row">
-        <div class="kicker">Experiment Design · A/B Testing</div>
+        <div class="kicker">UC Berkeley MIDS · Experiment Design · A/B Testing</div>
         <h3><a href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">LLM Prompt Consistency Experiment</a></h3>
         <ul>
-          <li>Designed a controlled experiment with power analysis and treatment/control groups — core A/B testing methodology applied to LLM evaluation</li>
-          <li>Tested prompt-engineering interventions across multiple LLMs (OpenAI, Gemini, Gemma) for response consistency</li>
-          <li>Applied statistical hypothesis testing to quantify the effect of treatment on response variability</li>
+          <li>Ran a factorial experiment (4 prompt treatments × 2 temperatures × 3 LLMs: ChatGPT, Gemini, Gemma), estimating average treatment effects via regression with interaction terms and significance testing — core A/B testing methodology</li>
+          <li>Found temperature, not prompt wording, was the dominant lever: setting temperature to 0 drove consistency gains as high as +100% in cosine similarity, while most "consistency-focused" prompt treatments backfired</li>
+          <li>Reported the counterintuitive null result rigorously rather than cherry-picking — avoided p-hacking by pre-committing to the full interaction model as the primary analysis</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci241-llm-prompt-consistency-experiment" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
       <div class="project-row">
-        <div class="kicker">Recommender Systems</div>
+        <div class="kicker">UC Berkeley MIDS · Recommender Systems</div>
         <h3><a href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">Movie Recommender: Matrix Factorization vs. Item-Item CF</a></h3>
         <ul>
-          <li>Built and benchmarked matrix factorization (SVD) and item-item collaborative filtering models on MovieLens 1M (1M+ ratings, 6,040 users)</li>
-          <li>Tuned SVD model outperformed baselines across precision, recall, and hit rate for top-N recommendations</li>
-          <li>Compared multiple approaches (baselines, ensembles, item-based CF) to identify the strongest architecture for the task</li>
+          <li>Built and benchmarked 5 recommenders (popularity baseline, hand-implemented Funk SVD, Item-Item CF, SVD+Bayesian ensemble, tuned Surprise SVD) on MovieLens 1M</li>
+          <li>Best model beat the popularity baseline by 45% on Precision@10 (0.0239 vs. 0.0165) and 39% on HitRate@10 (0.1775 vs. 0.1280), with a test RMSE of 0.879</li>
+          <li>Surfaced a fairness gap through subgroup analysis — younger and male users received measurably better recommendations — and proposed reweighting to address it before deployment</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci207-movie-recommender-matrix-factorization-cf" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
       <div class="project-row">
-        <div class="kicker">Applied Econometrics</div>
+        <div class="kicker">UC Berkeley MIDS · Applied Econometrics</div>
         <h3><a href="https://github.com/a-sharma06/datasci203-firm-characteristics-stock-price-event-study" target="_blank" rel="noopener">Firm Characteristics & Stock Price Event Study</a></h3>
         <ul>
-          <li>Ran an event study measuring short-term stock price reactions across Fortune 1000 firms</li>
-          <li>Modeled associations between firm-level financial/ESG characteristics and price movement</li>
-          <li>Applied statistical analysis to isolate which firm characteristics were most predictive of price reaction</li>
+          <li>Built a regression model (adjusted R² = 0.996) linking firm-level financial and ESG characteristics to two-week stock price changes for Fortune 1000 firms after a geopolitical shock</li>
+          <li>Found sector membership alone explains ~18% of return variation; Energy-sector firms saw a statistically significant 14.5% higher stock price than Consumer Discretionary firms (p &lt; 0.01), consistent with independent industry reporting</li>
+          <li>Validated findings with cluster-robust standard errors and a full model-assumption battery (collinearity, homoskedasticity, error distribution) across baseline, financial, and ESG specifications</li>
         </ul>
         <a class="link" href="https://github.com/a-sharma06/datasci203-firm-characteristics-stock-price-event-study" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
